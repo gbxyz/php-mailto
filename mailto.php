@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.6 2002-05-29 10:00:09 jodrell Exp $
+	//	$Id: mailto.php,v 1.7 2002-08-14 10:54:19 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
@@ -78,13 +78,20 @@
 		}
 
 		// print the JavaScript which prints the JavaScript which prints the HTML:
-		return	"<script language=\"JavaScript\" type=\"text/javascript\">\n" .
-			"	eval(unescape('$encoded'));\n" .
-			"</script>\n" .
-			"<noscript>\n" .
-			"	$noscript\n" .
-			"</noscript>\n";
+		return	"<script language=\"JavaScript\" type=\"text/javascript\">" .
+			"eval(unescape('$encoded'));" .
+			"</script>" .
+			"<noscript>$noscript</noscript>";
 
 		return true;
+	}
+
+	// this scans a chunk of text and replaces all e-mail addresses with smailto() calls:
+	function mailto_text($text) {
+		preg_match_all("/([A-Za-z0-9\.\_\-]+\@{1}[A-Za-z0-9\.\_\-]+)/", $text, $addresses);
+		foreach ($addresses[0] as $address) {
+			$text = str_replace($address, smailto($address), $text);
+		}
+		return $text;
 	}
 ?>
