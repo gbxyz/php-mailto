@@ -1,0 +1,76 @@
+README for mailto.php
+=====================
+
+0. CONTENTS
+
+	1. Introduction
+	2. Installation
+	3. Usage
+	4. Credits
+	5. Compatability
+	6. License
+
+
+1. Introduction
+
+The purpose of mailto.php is to reclaim the mailto: link from e-mail address
+harvesters. It uses JavaScript to obfuscate a mailto: hyperlink, so that a web
+page author can provide a link to an e-mail address without worrying that it
+might be picked up by spammers.
+
+
+2. Installation
+
+Installation is easy: simply place the mailto.php file somewhere on your
+web server's filesystem and include() or require() it somewhere on each
+page you want to use it.
+
+
+3. Usage
+
+.
+.
+.
+<p>	If you have any problems, please e-mail the
+	<? mailto('webmaster@site.com', 'webmaster'); ?>
+	and let them know.
+</p>
+.
+.
+.
+
+The library contains the function mailto() which accepts two arguments. The
+first is the e-mail address to be linked to, the second is the link text,
+which may be blank.
+
+
+4. Credits
+
+I had been mulling over this for some time before I came across Paul Gregg's
+implementation that gave me the incentive to complete it. His system is nice
+but isn't easily implemented across a whole site since you have to copy and
+paste from his web page. This should be a bit more user-friendly.
+
+
+5. Compatability
+
+Ensuring the compatability of JavaScript is always a problem, but mailto.php
+has been tested in the following web browsers:
+
+	Mozilla (main development environment):
+		Galeon
+		Netscape 6
+		Konqueror
+	Netscape 4.x
+	Opera 5+
+	Konqueror 2.x
+
+mailto.php will also include an appropriate string in <noscript> tags for
+non-JavaScript browsers.
+
+
+6. License
+
+Please see the LICENSE file for more details.
+
+$Id: README,v 1.1.1.1 2002-02-11 13:27:27 jodrell Exp $
