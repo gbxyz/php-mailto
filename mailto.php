@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.8 2004-07-06 13:50:34 jodrell Exp $
+	//	$Id: mailto.php,v 1.9 2004-07-06 14:01:17 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
@@ -107,4 +107,8 @@
 		return $html;
 	}
 
+	// an output buffering handler, remember, $buffer is read-only:
+	function ob_mailto($buffer) {
+		return mailto_html($buffer);
+	}
 ?>
