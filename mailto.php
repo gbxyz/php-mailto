@@ -20,10 +20,10 @@
 	//	unless they were actually looking for code of this kind.
 	//
 	//	This uses some ideas from Paul Gregg's website, but I had been
-	//	working on it before I know Paul had actually implemented it.
+	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.1.1.1 2002-02-11 13:27:26 jodrell Exp $
+	//	$Id: mailto.php,v 1.2 2002-02-11 14:21:03 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {

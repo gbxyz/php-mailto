@@ -49,7 +49,8 @@ which may be blank.
 I had been mulling over this for some time before I came across Paul Gregg's
 implementation that gave me the incentive to complete it. His system is nice
 but isn't easily implemented across a whole site since you have to copy and
-paste from his web page. This should be a bit more user-friendly.
+paste from his web page. This should be a bit more user-friendly. Paul's
+website is at http://www.pgregg.com/.
 
 
 5. Compatability
@@ -60,7 +61,7 @@ has been tested in the following web browsers:
 	Mozilla (main development environment):
 		Galeon
 		Netscape 6
-		Konqueror
+		K-Meleon
 	Netscape 4.x
 	Opera 5+
 	Konqueror 2.x
@@ -73,4 +74,4 @@ non-JavaScript browsers.
 
 Please see the LICENSE file for more details.
 
-$Id: README,v 1.1.1.1 2002-02-11 13:27:27 jodrell Exp $
+$Id: README,v 1.2 2002-02-11 14:21:03 jodrell Exp $
