@@ -23,11 +23,12 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.2 2002-02-11 14:21:03 jodrell Exp $
+	//	$Id: mailto.php,v 1.3 2002-02-21 11:18:50 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
 		for ($i = 0; $i < strlen($str); $i++) {
+			// you could use unpack() here as well:
 			$escaped .= '%' . dechex(ord(substr($str, $i, 1)));
 		}
 		return $escaped;
@@ -59,7 +60,7 @@
 		}
 
 		// print the JavaScript which prints the JavaScript which prints the HTML:
-		print	"<script language=\"JavaScript\">\n" .
+		print	"<script language=\"JavaScript\" type=\"text/plain\">\n" .
 			"	eval(unescape('$encoded'));\n" .
 			"</script>\n" .
 			"<noscript>\n" .
