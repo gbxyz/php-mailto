@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.10 2004-07-06 14:05:29 jodrell Exp $
+	//	$Id: mailto.php,v 1.11 2004-08-04 16:14:59 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
@@ -78,7 +78,7 @@
 		$encoded = uri_escape($code);
 
 		// generate stuff to go inside <noscript></noscript> tags:
-		if ($string == $email) {
+		if (strtolower($string) == strtolower($email)) {
 			$noscript = "(e-mail address hidden)";
 		} else {
 			$noscript = $string;
