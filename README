@@ -28,54 +28,7 @@ page you want to use it.
 
 3. Usage
 
-There are three ways to use mailto.php. The first method is if your website
-is built using PHP and you want to use an obfuscated e-mail address in an
-otherwise static page:
-
-<p>	If you have any problems, please e-mail the
-	<?mailto('webmaster@site.com', 'webmaster')?>
-	and let them know.
-</p>
-
-The second way is useful for developing an application that uses templates or
-writes static files. Rather than directly printing the output it returns the
-obfuscated link in a string:
-
-<?php
-	$link = smailto('webmaster@site.com', 'webmaster');
-
-	// you can now use $link as many times as you like:
-	print $link;
-	fputs($fh, $link);
-?>
-
-These two functions have the same relationship as printf() and sprintf(),
-hence the naming style used.
-
-The functions can accept either one or two arguments. If you specify just one
-argument, the e-mail address, then the link created will contain the e-mail
-address itself as the link text. If you specify a second argument, then its
-contents will be used as the link text.
-
-The third function is called mailto_text(). When supplied a string it will
-attempt to replace any e-mail addresses it finds with obfuscated links. This
-is designed primarily to protect e-mail addresses in plaintext. For example:
-
-<?php
-
-	// read a plaintext file into a variable:
-	$text = `cat /path/to/file.txt`
-
-	print '<pre>'.mailto_text($text).</pre>';
-?>
-
-4. Credits
-
-I had been mulling over this for some time before I came across Paul Gregg's
-implementation that gave me the incentive to complete it. His system is nice
-but isn't easily implemented across a whole site since you have to copy and
-paste from his web page. This should be a bit more user-friendly. Paul's
-website is at http://www.pgregg.com/.
+Please see the test.php file for usage instructions.
 
 
 5. Compatability
@@ -83,13 +36,12 @@ website is at http://www.pgregg.com/.
 Ensuring the compatability of JavaScript is always a problem, but mailto.php
 has been tested in the following web browsers:
 
-	Mozilla (main development environment):
-		Galeon
-		Netscape 6
-		K-Meleon
-	Netscape 4.x
-	Opera 5+
-	Konqueror 2.x
+	Mozilla
+	Internet Explorer
+	Netscape Communicator
+	Opera
+	Konqueror
+	Safari
 
 mailto.php will also include an appropriate string in <noscript> tags for
 non-JavaScript browsers.
@@ -99,4 +51,4 @@ non-JavaScript browsers.
 
 Please see the LICENSE file for more details.
 
-$Id: README,v 1.4 2002-08-14 12:43:40 jodrell Exp $
+$Id: README,v 1.5 2004-07-06 14:02:45 jodrell Exp $
