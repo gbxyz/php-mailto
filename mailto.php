@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.9 2004-07-06 14:01:17 jodrell Exp $
+	//	$Id: mailto.php,v 1.10 2004-07-06 14:05:29 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
@@ -35,7 +35,11 @@
 	}
 
 	function mailto() {
-		if (func_num_args() == 2) {
+		if (func_num_args() == 3) {
+			list($email, $string, $class) = func_get_args();
+			print smailto($email, $string, $class);
+			return true;
+		} elseif (func_num_args() == 2) {
 			list($email, $string) = func_get_args();
 		} elseif (func_num_args() == 1) {
 			list($email, $string) = array(func_get_arg(0), '');
@@ -46,7 +50,9 @@
 	}
 
 	function smailto() {
-		if (func_num_args() == 2) {
+		if (func_num_args() == 3) {
+			list($email, $string, $class) = func_get_args();
+		} elseif (func_num_args() == 2) {
 			list($email, $string) = func_get_args();
 		} elseif (func_num_args() == 1) {
 			list($email, $string) = array(func_get_arg(0), '');
@@ -61,11 +67,12 @@
 
 		// the JavaScript code to print the HTML:
 		// (putting newlines into $code seems to mess up the encoding, so don't)
+		$class_string = (empty($class) ? '' : "class=\"$class\"");
 		$enc_email = uri_escape($email);
 		$enc_str   = uri_escape($string);
 		$code =	"var addr = '$enc_email';" .
 			"var string = '$enc_str';" .
-			"document.write('<a href=\"mailto:' + unescape(addr) + '\">' + unescape(string) + '</a>');";
+			"document.write('<a $class_string href=\"mailto:' + unescape(addr) + '\">' + unescape(string) + '</a>');";
 
 		// encode the JavaScript code:
 		$encoded = uri_escape($code);
