@@ -1,5 +1,5 @@
 <?php
-	//	mailto.php version 1.0 Gavin Brown (gavin.brown@uk.com)
+	//	mailto.php version 1.1.0 Gavin Brown (gavin.brown@uk.com)
 	//	Future releases will be at http://jodrell.uk.net/
 
 	//	This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.3 2002-02-21 11:18:50 jodrell Exp $
+	//	$Id: mailto.php,v 1.4 2002-02-21 11:32:22 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
