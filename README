@@ -28,20 +28,34 @@ page you want to use it.
 
 3. Usage
 
-.
-.
-.
+There are two ways to use mailto.php. The first method is if your website is
+built using PHP and you want to use an obfuscated e-mail address in an
+otherwise static page:
+
 <p>	If you have any problems, please e-mail the
 	<? mailto('webmaster@site.com', 'webmaster'); ?>
 	and let them know.
 </p>
-.
-.
-.
 
-The library contains the function mailto() which accepts two arguments. The
-first is the e-mail address to be linked to, the second is the link text,
-which may be blank.
+The second way is useful for developing an application that uses templates or
+writes static files. Rather than directly printing the output it returns the
+obfuscated link in a string:
+
+<?php
+	$link = smailto('webmaster@site.com', 'webmaster');
+
+	// you can now use $link as many times as you like:
+	print $link;
+	fputs($fh, $link);
+?>
+
+These two functions have the same relationship as printf() and sprintf(),
+hence the naming style used.
+
+The functions can accept either one or two arguments. If you specify just one
+argument, the e-mail address, then the link created will contain the e-mail
+address itself as the link text. If you specify a second argument, then its
+contents will be used as the link text.
 
 
 4. Credits
@@ -74,4 +88,4 @@ non-JavaScript browsers.
 
 Please see the LICENSE file for more details.
 
-$Id: README,v 1.2 2002-02-11 14:21:03 jodrell Exp $
+$Id: README,v 1.3 2002-05-29 10:00:09 jodrell Exp $

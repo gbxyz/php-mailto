@@ -1,6 +1,6 @@
 <?php
-	//	mailto.php version 1.1.0 Gavin Brown (gavin.brown@uk.com)
-	//	Future releases will be at http://jodrell.uk.net/
+	//	mailto.php version 1.2.0 Gavin Brown (gavin.brown@uk.com)
+	//	Future releases will be at http://jodrell.net/
 
 	//	This program is free software; you can redistribute it and/or modify
 	//	it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.5 2002-03-13 16:44:33 jodrell Exp $
+	//	$Id: mailto.php,v 1.6 2002-05-29 10:00:09 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
@@ -34,7 +34,25 @@
 		return $escaped;
 	}
 
-	function mailto($email, $string) {
+	function mailto() {
+		if (func_num_args() == 2) {
+			list($email, $string) = func_get_args();
+		} elseif (func_num_args() == 1) {
+			list($email, $string) = array(func_get_arg(0), '');
+		} else {
+			return false;
+		}
+		print smailto($email, $string);
+	}
+
+	function smailto() {
+		if (func_num_args() == 2) {
+			list($email, $string) = func_get_args();
+		} elseif (func_num_args() == 1) {
+			list($email, $string) = array(func_get_arg(0), '');
+		} else {
+			return false;
+		}
 
 		// if the string is empty, use the e-mail address:
 		if ($string == '') {
@@ -60,7 +78,7 @@
 		}
 
 		// print the JavaScript which prints the JavaScript which prints the HTML:
-		print	"<script language=\"JavaScript\" type=\"text/javascript\">\n" .
+		return	"<script language=\"JavaScript\" type=\"text/javascript\">\n" .
 			"	eval(unescape('$encoded'));\n" .
 			"</script>\n" .
 			"<noscript>\n" .
