@@ -29,9 +29,9 @@
 		<h2>1. mailto() test:</h2>
 		<p>You can use the <tt>mailto()</tt> function to directly embed an obfuscated e-mail address link into some HTML, using the following syntax:</p>
 
-		<blockquote><pre>&lt;?mailto('user@host.com', 'click here to e-mail me')?&gt;</pre></blockquote>
+		<blockquote><pre>&lt;?mailto('user@host.com', 'click here to e-mail me', 'email-link')?&gt;</pre></blockquote>
 
-		<p>The second argument is optional.</p>
+		<p>The second argument (the link text) and the third argument (the CSS class attribute) are optional.</p>
 		<p>Here's the test:</p>
 
 		<blockquote>The administrator of this site is <?mailto($_SERVER[SERVER_ADMIN])?>.</blockquote>
@@ -43,11 +43,11 @@
 		<p>the <tt>smailto()</tt> function returns a string containting an obfuscated HTML link to an e-mail address. This function is useful if you want to store or buffer the link for use later on. The syntax is:</p>
 
 		<blockquote><pre>&lt;?php
-	$link = smailto('user@host.com', 'click here to e-mail me');
+	$link = smailto('user@host.com', 'click here to e-mail me', 'email-link');
 	print $link;
 ?&gt;</pre></blockquote>
 
-		<p>The second argument is optional.</p>
+		<p>The second argument (the link text) and the third argument (the CSS class attribute) are optional.</p>
 		<p>Here's the test:</p>
 
 		<blockquote><?php
