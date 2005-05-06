@@ -108,6 +108,23 @@
 			print "<p>Here is some HTML with an <a href=\"mailto:$_SERVER[SERVER_ADMIN]\">e-mail address</a> in it.</p></p>";
 		?></blockquote>
 
+		<h2>3. MAILTO_USE_NOSCRIPT test</h2>
+
+		<p><tt>mailto.php</tt> can be configured not to use <tt>&lt;noscript&gt;</tt> elements to provide compatability with browsers not using JavaScript. However, the XHTML standard forbids the use of <tt>&lt;noscript&gt;</tt> elements in the body of an XHTML document. If you want your document to validate against the XHTML standards, you must set the <tt>MAILTO_USE_NOSCRIPT</tt> constant to <tt>false</tt>, like so:</p>
+
+		<blockquote><pre>&lt;php
+	define(MAILTO_USE_NOSCRIPT, false);
+
+	mailto('user@host.com', 'click here to e-mail me', 'email-link');			
+?&gt;</pre></blockquote>
+
+		<p>This produces:</p>
+
+		<blockquote>The administrator of this site is <?php
+			define(MAILTO_USE_NOSCRIPT, false);
+			mailto($_SERVER[SERVER_ADMIN]);
+		?>.</blockquote>
+
 		<hr />
 		<address>
 			--<br />
