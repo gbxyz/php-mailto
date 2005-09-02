@@ -23,7 +23,7 @@
 	//	working on it before I knew Paul had actually implemented it.
 	//	Visit www.pgregg.com for more information.
 	//
-	//	$Id: mailto.php,v 1.13 2005-05-11 22:04:07 jodrell Exp $
+	//	$Id: mailto.php,v 1.14 2005-09-02 15:39:36 jodrell Exp $
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
@@ -105,11 +105,11 @@
 
 	// this scans a chunk of HTML and replaces all e-mail addresses with smailto() calls:
 	function mailto_html($html) {
-		preg_match_all("/<a[\s\r\n\t]+href=\"mailto:([A-Za-z0-9\.\_\-]+\@{1}[A-Za-z0-9\.\_\-\?\&\;\=\%]+)?\"[\s\r\n\t]*>[\s\r\n\t]*(.+?)[\s\r\n\t]*<\/a>/si", $html, $addresses);
+		preg_match_all("/<a[\s\r\n\t]+href=\"mailto:([A-Za-z0-9\.\_\-]+\@{1}[A-Za-z0-9\.\_\-]+)\"[\s\r\n\t]*(.+?)[\s\r\n\t]*>[\s\r\n\t]*(.+?)[\s\r\n\t]*<\/a>/si", $html, $addresses);
 		if (count($addresses[0]) > 0) {
 			for ($i = 0 ; $i < count($addresses[0]) ; $i++) {
-				$addresses[2][$i] = preg_replace('/[\r\n]+/', ' ', $addresses[2][$i]);
-				$html = str_replace($addresses[0][$i], smailto($addresses[1][$i], $addresses[2][$i]), $html);
+				$addresses[1][$i] = preg_replace('/[\r\n]+/', ' ', $addresses[1][$i]);
+				$html = str_replace($addresses[0][$i], smailto($addresses[1][$i], $addresses[3][$i], $addresses[2][$i]), $html);
 			}
 		}
 		return $html;
