@@ -1,3 +1,18 @@
+Historical Note
+===============
+
+It's been ten years since I first published mailto.php, and in that time 
+the techniques used by spammers to harvest email addresses have moved 
+on. Modern web spiders now include Javascript engines, making the 
+obfuscation techniques that mailto.php uses obsolete.
+
+However, since this library has been very widely deployed, and embedded 
+in other applications that continue to be maintained and developed, I 
+will continue to maintain the public repository for mailto.php, for 
+historical reasons if nothing else.
+
+Gavin Brown (jodrell), May 2014.
+
 README for mailto.php
 =====================
 
