@@ -27,6 +27,7 @@
 
 	// function to URI encode a string of ASCII text:
 	function uri_escape($str) {
+		$escaped = '';
 		for ($i = 0; $i < strlen($str); $i++) {
 			// you could use unpack() here as well:
 			$escaped .= '%' . dechex(ord(substr($str, $i, 1)));
